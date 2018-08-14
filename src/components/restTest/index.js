@@ -65,17 +65,17 @@ export default class RestTest extends Component {
         style={styles.container}
         contentContainerStyle={styles.contentContainer}
       >
-      <Text>REST test</Text>
+      <Text style={styles.pageHeader}>REST test</Text>
 
       <TouchableOpacity
-        style={styles.clearMessagesButton}
+        style={styles.button}
         onPress={this.clearMessages}
       >
         <Text>Clear messages</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
-        style={styles.messageButton}
+        style={styles.button}
         onPress={() => this.sendMessage()}
       >
         <Text>Send test message</Text>

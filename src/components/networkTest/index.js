@@ -19,7 +19,11 @@ export default class NetworkTest extends Component {
 
     NetInfo.getConnectionInfo().then((connectionInfo) => {
       console.log('Initial, type: ' + connectionInfo.type + ', effectiveType: ' + connectionInfo.effectiveType);
+      this.setState({
+        connectionType: connectionInfo.type
+      });
     });
+
 
     NetInfo.addEventListener(
       'connectionChange',

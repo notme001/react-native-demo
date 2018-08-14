@@ -3,9 +3,7 @@ package com.synctest;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.jamesisaac.rnbackgroundtask.BackgroundTaskPackage;
 import io.realm.react.RealmReactPackage;
-import com.ocetnik.timer.BackgroundTimerPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -41,7 +39,8 @@ public class MainApplication extends NavigationApplication {
         // Add additional packages you require here
         // No need to add RnnPackage and MainReactPackage
         return Arrays.<ReactPackage>asList(
-            new RCTMqttPackage()
+              new RCTMqttPackage(),
+              new RealmReactPackage()
         );
     }
 
@@ -54,6 +53,6 @@ public class MainApplication extends NavigationApplication {
     public void onCreate() {
       super.onCreate();
       SoLoader.init(this, /* native exopackage */ false);
-      BackgroundTaskPackage.useContext(this)
+
     }
 }

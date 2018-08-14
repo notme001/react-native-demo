@@ -90,8 +90,10 @@ export default class MqttTest extends Component {
   }
 
   componentDidDisappear() {
-    MQTT.removeClient(this.client)
-    this.client = null;
+    if (this.client) {
+      MQTT.removeClient(this.client)
+      this.client = null;
+    }
   }
 
   // send test message without delay
@@ -131,10 +133,10 @@ export default class MqttTest extends Component {
         style={styles.container}
         contentContainerStyle={styles.contentContainer}
       >
-      <Text>Mqtt test</Text>
+      <Text style={styles.pageHeader}>Mqtt test</Text>
 
       <TouchableOpacity
-        style={styles.clearMessagesButton}
+        style={styles.button}
         onPress={this.clearMessages}
       >
         <Text>Clear messages</Text>
@@ -142,7 +144,7 @@ export default class MqttTest extends Component {
 
 
       <TouchableOpacity
-        style={styles.messageButton}
+        style={styles.button}
         onPress={() => this.sendMessage()}
       >
         <Text>Send test message</Text>
